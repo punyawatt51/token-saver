@@ -1,0 +1,11 @@
+{
+  "name": "token-saver",
+  "owner": { "name": "token-saver contributors" },
+  "plugins": [
+    {
+      "name": "token-saver",
+      "source": "./",
+      "description": "Lean working mode that cuts Claude Code usage and plan-limit burn."
+    }
+  ]
+}

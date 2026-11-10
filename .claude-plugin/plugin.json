@@ -1,0 +1,5 @@
+{
+  "name": "token-saver",
+  "description": "Lean working mode that cuts Claude Code usage and plan-limit burn.",
+  "version": "1.0.0"
+}
