@@ -1,6 +1,6 @@
 ---
 name: token-saver
-description: Lean working mode that cuts Claude usage and plan-limit burn. Use at the start of any coding or agent session, whenever the user mentions usage, credits, limits, tokens, "save tokens", "lean mode", or "cheap mode", or when a session is getting long.
+description: Lean working mode that cuts Claude usage and plan-limit burn. Use at the start of any coding or agent session, whenever the user mentions usage, credits, limits, tokens, "save tokens", "lean mode", or "cheap mode", when a session is getting long, or when the user writes in Thai (or another non-Latin script).
 ---
 
 # Token saver
@@ -45,6 +45,24 @@ re-read over and over, not new text. So: keep context small, take fewer turns, a
 - Routine edits, renames, small fixes, Q&A → suggest Sonnet or Haiku and low
   effort. Keep Opus / high effort for hard design or debugging.
 - Don't think at length about simple steps.
+
+## 7. Thai and other non-English languages
+Thai (like other non-Latin scripts) takes noticeably more tokens than English
+for the same meaning, and every message is re-read on every turn.
+- Reply in the user's language, but short: answer first, no restating their
+  message, no polite filler or repeated greetings.
+- Everything not addressed to the user stays in English: thinking, tool
+  queries, notes, code comments, commit messages, handoff notes (unless the
+  project already uses Thai there).
+- Keep technical terms, file names and commands in English inside Thai replies
+  (write "commit", "deploy", "bug"; don't translate them).
+- Understand casual Thai without asking back: short phrases, typos, missing
+  tone marks, Thai–English mixing ("fix bug หน้า login"), and text typed with
+  the wrong keyboard layout (Kedmanee: "้ำสสน" = "hello", "ฟหกด" = "asdf";
+  English typed for Thai: "l;ylfu" = "สวัสดี"). Infer the intent and act. Only ask when
+  two readings would lead to different actions.
+- Long pasted Thai documents: work from a short English summary of what
+  matters; never quote large parts back.
 
 ## One-time setup to suggest (if the user hasn't done it)
 Tool and skill definitions ride along on every request. Disabling MCP servers
